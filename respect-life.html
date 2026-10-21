@@ -1,0 +1,505 @@
+<title>قوانين Respect Life</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&display=swap">
+<style>
+/* Layout: dark RTL rulebook — top bar, hero + intro card, sticky section rail beside searchable rule list */
+:root{
+  --bg:#09070d;
+  --surface:#120e19;
+  --surface-2:#19131f;
+  --line:#2a2233;
+  --fg:#f3eff8;
+  --muted:#a69cb3;
+  --dim:#6f6680;
+  --accent:#b46cf5;
+  --accent-deep:#7b2fd6;
+  --accent-soft:rgba(180,108,245,.12);
+  --danger:#f0657a;
+  --f-display:"Readex Pro","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.75;
+  background-image:radial-gradient(900px 500px at 85% 0%,rgba(123,47,214,.16),transparent 70%),radial-gradient(700px 400px at 0% 30%,rgba(123,47,214,.07),transparent 70%);
+  background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(9,7,13,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo{width:42px;height:42px;border-radius:12px;border:1px solid var(--line);flex:none;object-fit:cover;display:block}
+.brand b{display:block;font-family:var(--f-display);font-weight:700;font-size:16px;letter-spacing:.04em;direction:ltr;text-align:right}
+.brand small{display:block;font-size:10.5px;color:var(--muted);letter-spacing:.14em;direction:ltr;text-align:right;line-height:1.3}
+.top nav{display:flex;align-items:center;gap:18px}
+.top nav a.link{font-size:14px;color:var(--muted);text-decoration:none}
+.top nav a.link:hover{color:var(--fg)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;font-weight:600;font-size:14.5px;text-decoration:none;color:#fff;
+  background:linear-gradient(180deg,var(--accent),var(--accent-deep));box-shadow:0 6px 24px -8px rgba(160,80,240,.7),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn:hover{filter:brightness(1.08)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;padding-block:56px 40px}
+.panel{background:linear-gradient(180deg,var(--surface),rgba(18,14,25,.6));border:1px solid var(--line);border-radius:22px}
+.hero-main{padding:48px 44px;position:relative;overflow:hidden;min-width:0}
+.hero-main .mark{position:absolute;left:32px;bottom:-40px;width:220px;opacity:.09;pointer-events:none;border-radius:40px;mask-image:radial-gradient(circle,#000 55%,transparent 72%);-webkit-mask-image:radial-gradient(circle,#000 55%,transparent 72%)}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--accent);font-weight:600;font-size:14px}
+.eyebrow::before{content:"";width:24px;height:2px;background:var(--accent);border-radius:2px}
+h1{font-family:var(--f-display);font-size:clamp(36px,6vw,68px);line-height:1.15;margin:18px 0 18px;font-weight:700;text-wrap:balance}
+h1 .en{color:var(--accent);direction:ltr;display:inline-block;letter-spacing:-.01em}
+.lead{color:var(--muted);font-size:16.5px;max-width:62ch;margin:0}
+.stats{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap}
+.stat b{display:block;font-family:var(--f-display);font-size:24px;font-variant-numeric:tabular-nums;direction:ltr;text-align:right}
+.stat span{font-size:13px;color:var(--muted)}
+.hero-side{padding:28px;display:flex;flex-direction:column;gap:14px}
+.ico{width:48px;height:48px;border-radius:13px;background:var(--accent-soft);border:1px solid rgba(180,108,245,.25);display:grid;place-items:center;color:var(--accent);flex:none}
+.hero-side h3{font-family:var(--f-display);font-size:19px;margin:10px 0 0}
+.hero-side p{margin:0;color:var(--muted);font-size:14px}
+.hero-side .foot{margin-top:auto;border-top:1px solid var(--line);padding-top:16px;font-size:13px;color:var(--muted)}
+.hero-side .age{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(240,101,122,.08);border:1px solid rgba(240,101,122,.25);font-size:13.5px;color:var(--fg)}
+.hero-side .age b{color:var(--danger);font-family:var(--f-display);direction:ltr}
+
+/* main layout */
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:28px;padding-bottom:80px;align-items:start}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);padding:18px 14px;max-height:calc(100vh - 110px);overflow:auto}
+.rail h4{margin:4px 10px 12px;font-size:12px;color:var(--muted);font-weight:500;letter-spacing:.02em}
+.rail ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.rail a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;text-decoration:none;color:var(--muted);font-size:14.5px;border:1px solid transparent;position:relative;transition:background .15s,color .15s}
+.rail a:hover{color:var(--fg);background:var(--surface-2)}
+.rail a.on{color:var(--fg);font-weight:600;background:var(--accent-soft);border-color:rgba(180,108,245,.22)}
+.rail a.on::after{content:"";position:absolute;right:-1px;top:12px;bottom:12px;width:3px;border-radius:3px;background:var(--accent)}
+.rail a em{font-style:normal;font-size:12px;color:var(--dim);font-variant-numeric:tabular-nums}
+
+.content{min-width:0;display:flex;flex-direction:column;gap:24px}
+.search{display:flex;align-items:center;gap:12px;padding:0 20px;height:58px}
+.search svg{color:var(--muted);flex:none}
+.search input{flex:1;min-width:0;background:none;border:0;color:var(--fg);font:inherit;font-size:15.5px;outline:none;height:100%}
+.search input::placeholder{color:var(--dim)}
+.search kbd{font-family:var(--f-body);font-size:11px;color:var(--dim);border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+.count{font-size:13px;color:var(--muted);margin:-12px 6px 0}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+
+section.sec{overflow:hidden;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 84px)}
+.sec-head{display:flex;align-items:center;gap:16px;padding:24px 28px;border-bottom:1px solid var(--line)}
+.sec-head h2{font-family:var(--f-display);font-size:21px;margin:0;line-height:1.4}
+.sec-head p{margin:2px 0 0;color:var(--muted);font-size:13.5px}
+.sec-head .num{margin-inline-start:auto;color:var(--dim);font-size:12.5px;font-variant-numeric:tabular-nums;direction:ltr}
+.sec-head .tag{font-family:var(--f-body);font-size:11px;color:var(--accent);background:var(--accent-soft);padding:2px 8px;border-radius:999px;margin-inline-start:8px;vertical-align:middle;letter-spacing:.06em;direction:ltr;display:inline-block}
+.intro{padding:20px 28px 0;color:var(--muted);font-size:14.5px;max-width:80ch}
+.group{padding:20px 28px 4px;font-size:12.5px;font-weight:600;color:var(--accent);letter-spacing:.02em}
+ol.rules{list-style:none;margin:0;padding:6px 28px 12px}
+.rule{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.rule:last-child{border-bottom:0}
+.rule .n{flex:none;width:32px;height:32px;border-radius:9px;background:var(--surface-2);border:1px solid var(--line);display:grid;place-items:center;font-size:12.5px;font-weight:700;color:var(--accent);font-variant-numeric:tabular-nums;direction:ltr;margin-top:1px}
+.rule .body{min-width:0}
+.rule h3{margin:0 0 4px;font-size:16px;font-weight:700;font-family:var(--f-body)}
+.rule h3 small{font-weight:500;color:var(--dim);font-size:12px;direction:ltr;display:inline-block;margin-inline-start:6px;letter-spacing:.04em}
+.rule p{margin:0;color:var(--muted);font-size:14.5px}
+.rule ul{margin:8px 0 0;padding-inline-start:18px;color:var(--muted);font-size:14px}
+.rule ul li::marker{color:var(--accent)}
+.rule .pen{display:inline-block;margin-top:8px;font-size:12px;font-weight:600;color:var(--danger);background:rgba(240,101,122,.1);border:1px solid rgba(240,101,122,.25);border-radius:999px;padding:1px 10px}
+mark{background:rgba(180,108,245,.32);color:var(--fg);border-radius:3px;padding:0 2px}
+
+/* warn ladder */
+.ladder{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;padding:22px 28px}
+.step{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--surface-2);display:flex;flex-direction:column;gap:4px}
+.step b{font-family:var(--f-display);font-size:18px;font-variant-numeric:tabular-nums}
+.step span{font-size:12.5px;color:var(--dim)}
+.step.ban{border-color:rgba(180,108,245,.35);background:var(--accent-soft)}
+.step.ban span{color:var(--fg);font-weight:600}
+.step.final{border-color:rgba(240,101,122,.45);background:rgba(240,101,122,.1)}
+.step.final span{color:var(--danger)}
+.ladder-note{padding:0 28px 22px;color:var(--muted);font-size:13.5px}
+
+/* tickets */
+.notice{margin:20px 28px 0;padding:12px 16px;border-radius:12px;background:rgba(240,101,122,.08);border:1px solid rgba(240,101,122,.25);font-size:14px}
+.foot-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.ghost{font-size:14px;color:var(--muted);text-decoration:none;padding:10px 4px}
+.ghost:hover{color:var(--fg)}
+.sec-foot{padding:16px 28px 22px;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line)}
+
+footer{border-top:1px solid var(--line);padding-block:28px;color:var(--dim);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:1000px){
+  .hero{grid-template-columns:1fr}
+  .layout{grid-template-columns:1fr}
+  .rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 66px);z-index:10;max-height:none;padding:8px;overflow-x:auto;border-radius:14px;background:var(--surface)}
+  .rail h4{display:none}
+  .rail ul{flex-direction:row;gap:6px}
+  .rail a{white-space:nowrap;padding:8px 12px;font-size:13.5px}
+  .rail a.on::after{display:none}
+  section.sec{scroll-margin-top:calc(env(safe-area-inset-top,0px) + 140px)}
+}
+@media (max-width:600px){
+  .top nav a.link{display:none}
+  .btn{padding:9px 14px;font-size:13.5px}
+  .hero{padding-block:28px 24px}
+  .hero-main{padding:30px 22px}
+  .stats{gap:24px}
+  .sec-head,.intro,.group,ol.rules,.ladder,.ladder-note,.foot-cta{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.ghost{font-size:14px;color:var(--muted);text-decoration:none;padding:10px 4px}
+.ghost:hover{color:var(--fg)}
+.sec-foot{padding-left:18px;padding-right:18px}
+  .notice{margin-left:18px;margin-right:18px}
+  .ladder{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .search kbd{display:none}
+  .sec-head .num{display:none}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Respect Life">
+      <img class="logo" src="data:image/webp;base64,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" alt="شعار Respect Life" width="42" height="42">
+      <span><b>RESPECT LIFE</b><small>ROLEPLAY RULEBOOK</small></span>
+    </a>
+    <nav>
+      <a class="link" href="#rules">القوانين</a>
+      <a class="link" href="#tickets">قوانين التذاكر</a>
+      <a class="btn" href="https://discord.com/channels/1534016354901037230/1553361015633084476" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>الدعم والتكت</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div class="panel hero-main">
+      <img class="mark" src="data:image/webp;base64,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" alt="" aria-hidden="true">
+      <div class="eyebrow">الدليل الرسمي للرول بلاي</div>
+      <h1>قوانين <span class="en">Respect Life</span></h1>
+      <p class="lead">اقرأ القوانين قبل دخول المدينة. جهلك بالقانون لا يعفيك من العقوبة، والهدف تجربة رول بلاي عادلة وواقعية وممتعة للجميع.</p>
+      <div class="stats">
+        <div class="stat"><b id="statSec">0</b><span>أقسام رئيسية</span></div>
+        <div class="stat"><b id="statRules">0</b><span>قاعدة واضحة</span></div>
+        <div class="stat"><b>24/7</b><span>دعم عبر التكت</span></div>
+      </div>
+    </div>
+    <aside class="panel hero-side">
+      <span class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <h3>قبل أن تبدأ</h3>
+      <p>وجودك في السيرفر يعني موافقتك على جميع القوانين، وتحديثاتها تسري من وقت نشرها.</p>
+      <div class="age">العمر المسموح لدخول السيرفر <b>+18</b></div>
+      <p>يحق للرقابة التعامل مع أي شخص أو موقف أو مخالفة حتى لو لم يرد القانون بشكل صريح.</p>
+      <div class="foot">آخر تحديث: 21 أكتوبر 2026 · الإدارة تحتفظ بحق تقدير العقوبة حسب الحالة وسجل المخالفات.</div>
+    </aside>
+  </div>
+
+  <div class="wrap layout" id="rules">
+    <aside class="panel rail" aria-label="التنقل بين الأقسام">
+      <h4>التنقل بين الأقسام</h4>
+      <ul id="nav"></ul>
+    </aside>
+    <div class="content">
+      <label class="panel search" for="q">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="ابحث في جميع القوانين... مثال: سرقة، شرطة، عداوة، تكت" autocomplete="off">
+        <kbd>/</kbd>
+      </label>
+      <div class="count" id="count"></div>
+      <div id="sections"></div>
+      <div class="panel empty" id="empty" hidden>لا توجد قوانين تطابق بحثك. جرّب كلمة أخرى.</div>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Respect Life · جميع الحقوق محفوظة</span><span>نتمنى لكم قضاء وقت ممتع في ريسبكت</span></div></footer>
+
+<script>
+const I={
+  core:'<path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M12 8v4l3 2"/>',
+  shield:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8"/>',
+  car:'<path d="M5 17h14M5 17a2 2 0 1 0 4 0M15 17a2 2 0 1 0 4 0M3 17v-5l2-5h14l2 5v5"/>',
+  warn:'<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/>',
+  ticket:'<path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4z"/><path d="M13 5v14" stroke-dasharray="2 2"/>',
+  police:'<path d="M12 2 4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5z"/><path d="m12 8 1.2 2.5 2.8.4-2 2 .5 2.8-2.5-1.3-2.5 1.3.5-2.8-2-2 2.8-.4z"/>',
+  ems:'<path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/>',
+  gang:'<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
+  justice:'<path d="M12 3v18M5 21h14M3 7h18M6 7l-3 7a3 3 0 0 0 6 0zM18 7l-3 7a3 3 0 0 0 6 0z"/>',
+  crime:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 1v4M12 19v4M1 12h4M19 12h4"/>',
+  rob:'<path d="M19 21V11a7 7 0 0 0-14 0v10"/><path d="M3 21h18M12 11v4"/>'
+};
+
+const DATA=[
+{id:"basics",tag:"BASICS",icon:"core",title:"أساسيات الرول بلاي",sub:"المصطلحات الأساسية التي تُبنى عليها كل القوانين",rules:[
+ {t:"قوانين الحياة الجديدة",en:"NLR",d:"في حال إغمائك بشكل كامل لا يمكنك الكلام أو الحركة أو فعل أي شيء.",li:["إذا تم إسقاطك من قبل شخص وتم إنعاشك من قبل المسعفين: تستطيع تذكر جميع الأحداث.","إذا تم إعطاؤك إبرة في العيادة الخاصة من أحد اللاعبين الذين لديهم عداوة معك: لا تستطيع تذكر أي شيء حصل لك (بما فيها العداوات أو الأحداث)."]},
+ {t:"الباور جيمنج",en:"PowerGaming",d:"استخدام وسائل غير موجودة في اللعبة للحصول على ميزة، أو عدم التوافق مع العالم بطريقة معقولة وواقعية. هناك الكثير من المواقف والأمثلة التي تندرج تحت الباور جيمنج."},
+ {t:"الخوف على الحياة",en:"NVL",d:"عدم الخوف بشكل واقعي على حياتك عند تعرضك للتهديد بالأسلحة أو بأذى شديد من وسائل أخرى يُعد مخالفة. الخوف على الحياة أساسي ومهم جداً، مثل وجود أداة تعرّض حياتك للخطر."},
+ {t:"الميتا جيمنج",en:"Metagaming",d:"أي معلومة تحصل عليها من خارج المدينة تُعد مخالفة، مثل معلومة من بث أو ديسكورد أو مقطع يوتيوب."},
+ {t:"القتل العشوائي",en:"RDM",d:"قتل الأشخاص دون سبب أو تهديد، أو بصورة عشوائية، أو بدون عداوة، ممنوع ومخالف للنظام العام للسيرفر."},
+ {t:"قانون تقدير الحياة",en:"NWL",d:"الحفاظ على حياتك وحياة الآخرين وعدم التهور، وألا تستهين بقتل الأشخاص، وألا تقاوم المجرم أو الشرطة أو أي شخص يحمل سلاحاً خصوصاً إذا كنت أعزل. هذا لا يمنع حق الدفاع عن النفس عند الضرورة التي تمنعك من طلب مساعدة الشرطة، وفي كل الأحوال يجب محاورة اللاعب جيداً والتفاوض معه قبل أي عمل يعرّض حياته للخطر."}
+]},
+{id:"general",tag:"GENERAL",icon:"shield",title:"القوانين العامة",sub:"الدخول والشخصية والسلوك داخل المدينة",groups:[
+ {g:"شروط عامة",rules:[
+  {t:"الأهلية",d:"العمر المسموح لدخول السيرفر 18 سنة فما فوق."},
+  {t:"الشخصيات الافتراضية",d:"ممنوع استخدام أي شخصية افتراضية إلا من خلال المتجر فقط."},
+  {t:"اسم الشخصية",d:"ممنوع كتابة اسمك باللغة الإنجليزية (Ahmed Mohammed) أو برموز (احمــــد محمد!) أو بالتشكيل (أحّمْدُ مُحَمّدً)، أو أن يكون اسم شخصية مشهورة (بابلو اسكوبار)."},
+  {t:"جهاز الدخول",d:"يُمنع الدخول من أجهزة غير جهازك الشخصي، مثل مقاهي الإنترنت أو مراكز الألعاب."},
+  {t:"شخصية واحدة وتغيير المسار",d:"يحق لك امتلاك شخصية واحدة فقط. عند التحول من شخصية إجرامية إلى عسكرية:",li:["يجب أن تمر 14 يوماً بدون أي نشاط إجرامي.","يُحتفظ بالسجل الجنائي، وتقدّم طلب عدم ممانعة للتطوع الإجباري من المحكمة وتتطوع في مستشفى ريسبكت.","إذا كانت القضايا كبيرة وتؤدي إلى حكم بالإعدام، تُعدم الشخصية.","لا يمكن دخول العسكرية إلا بعد مرور 20 يوماً من التوقف عن الإجرام.","في الحالة العكسية (من عسكري إلى مدني أو مجرم) يجب تقديم استقالة رسمية."]}
+ ]},
+ {g:"اللعب والبث",rules:[
+  {t:"الستريم سنايب",d:"ممنوع الستريم سنايب أو متابعة البثوث أثناء اللعب.",p:"عقوبة شديدة"},
+  {t:"التواصل الخارجي",d:"ممنوع التواجد في الديسكورد أو التواصل الخارجي مع لاعبين آخرين أثناء اللعب."}
+ ]},
+ {g:"داخل السيرفر",rules:[
+  {t:"البوتات",d:"ممنوع الاعتداء على البوتات، فهم يُعتبرون مواطنين."},
+  {t:"التعويض",d:"ممنوع طلب تعويض عند خسارة أموالك أو أغراضك بسبب التحلل أو المستشفى."},
+  {t:"تطبيق تويتر",d:"ممنوع الكتابة خارج الرول بلاي في تويتر، والكتابة مسموحة فقط فيما يخص التمثيل وتقمص الشخصيات والسيناريوهات وما يكملها."},
+  {t:"الأحداث الكبيرة",d:"لا يحق لك الدخول في أحداث كبيرة (مثل البيع والشراء) إلا إذا كانت بينكم معرفة رول بلاي لا تقل عن أسبوع."},
+  {t:"الألفاظ والمواضيع المحظورة",d:"يُمنع القذف والشتم والطائفية والسياسة والدين والقبلية.",p:"باند نهائي"},
+  {t:"الكلام المبطّن",d:"يُمنع استخدام كلمات غير مفهومة أو مشفرة أو سب مبطّن."},
+  {t:"خدمات الجوال",d:"يُمنع استغلال خدمات الجوال (مثل طلب تاكسي أو خدمات) بهدف الخطف أو القتل."},
+  {t:"توزيع الأموال",d:"يُمنع توزيع مبالغ كبيرة (10 آلاف فأكثر) إلا إذا كانت بينكم معرفة لا تقل عن أسبوع."},
+  {t:"الحسابات الشخصية",d:"يُمنع مشاركة أي من حساباتك أو معلوماتك الشخصية (سناب، إنستا، ستيم، ديسكورد... إلخ) مع أي شخص.",p:"باند نهائي"},
+  {t:"الحمل والسحب",d:"يُمنع حمل شخصين في نفس الوقت (حمل + سحب) مهما كانت الأسباب."}
+ ]}
+]},
+{id:"driving",tag:"DRIVING",icon:"car",title:"قوانين القيادة",sub:"القيادة يجب أن تكون واقعية",rules:[
+ {t:"السرعة",d:"لا سرعة مفرطة بدون سبب."},
+ {t:"الإشارات",d:"لا قطع إشارات عشوائي."},
+ {t:"التهور",d:"لا تهور بدون داعٍ.",p:"تحذير Power Gaming أو باند"},
+ {t:"حركات الدباب",d:"يُمنع رفع الدباب والنط من أي مكان، بما فيها الأرصفة القصيرة والجسور والجدران والمباني وأي عوائق تجعل الدباب يرتفع في الهواء."}
+]},
+{id:"warns",tag:"WARNS",icon:"warn",title:"نظام الوورنات",sub:"تدرّج العقوبات حسب عدد التحذيرات",ladder:true,rules:[]},
+{id:"tickets",tag:"TICKETS",icon:"ticket",title:"قوانين التذاكر",sub:"آداب فتح التكت والتعامل مع الإدارة",notice:"تحذير: في حال مخالفة القوانين التالية يحق للإدارة اتخاذ الإجراءات اللازمة كالتحذير أو الباند.",foot:"يرجى الالتزام بقوانين التذاكر وعدم مخالفة أي منها. نتمنى لكم قضاء وقت ممتع في ريسبكت.",rules:[
+ {t:"مهلة الرد",d:"في حال عدم الرد خلال 24 ساعة سيتم إغلاق التذكرة."},
+ {t:"الشكاوى بدون دليل",d:"أي شكوى أو طلب تعويض بدون دليل يُرفض."},
+ {t:"طلبات التعويض",d:"أي طلب تعويضي بدون دليل سيتم رفضه."},
+ {t:"التذكرة المهملة",d:"ممنوع فتح تذكرة وعدم الرد فيها.",p:"تحذير"},
+ {t:"نوع التذكرة",d:"اختر نوع التذكرة المناسب حتى تستطيع الإدارة مساعدتك بأسرع وقت."},
+ {t:"المنشن وطلب الحضور",d:"يُمنع منعاً باتاً فتح تذكرة لطلب الحضور للدعم الفني أو منشن الإدارة."},
+ {t:"التذكرة الفارغة",d:"إذا فتحت تذكرة ولم تكتب شيئاً خلال ساعة سيتم إغلاقها."},
+ {t:"مدة الدليل",d:"في الشكاوى يجب أن يبدأ الدليل قبل المخالفة المرتكبة بـ 10 دقائق كحد أدنى."},
+ {t:"التذاكر المكررة",d:"يُمنع منعاً باتاً فتح تذكرتين بنفس الموضوع.",p:"تحذير فوري"},
+ {t:"السبام",d:"يُمنع التكرار والسبام في التكتات."}
+]},
+{id:"police",tag:"POLICE",icon:"police",title:"قوانين الشرطة",sub:"صلاحيات وواجبات رجال الأمن في شرطة ريسبكت",groups:[
+ {g:"الإجراءات الميدانية",rules:[
+  {t:"إيقاف الخدمات",d:"يحق للضابط وما فوق رفع طلب إيقاف خدمات إلى المحكمة، ولا يُنفَّذ إلا بحكم منها."},
+  {t:"المداهمة",d:"تُطلب المداهمة من الضباط وما فوق، ولا يمكن مداهمة أي شخص إلا بأمر تنفيذ من المحكمة."},
+  {t:"مسؤول الحالة",d:"عند أي مخالفة سواء في الرول بلاي أو قوانين الشرطة يُحاسَب مسؤول الحالة فقط، ويتحمل مسؤولية الأفراد."},
+  {t:"إخراج السلاح",d:"لا يُخرج العسكري سلاحه إلا بعد أن يُخرج المجرم سلاحه."},
+  {t:"فئة السلاح",d:"يستخدم العسكري نفس فئة الأسلحة (خفيف، ثقيل) التي يستخدمها المجرم، باستثناء أوامر القيادة."},
+  {t:"السلاح الأبيض",d:"لا تُستخدم الأسلحة النارية إذا استخدم المجرم سلاحاً أبيض، إلا إذا هاجم المجرم العسكري."},
+  {t:"عدم التفرقة والتهم",d:"التفرقة في التعامل بين المواطنين (مع مجرم أو مسعف أو مواطن) تُحوَّل رقابياً. عند القبض على المجرم تُعطى له التهم الأساسية فقط.",li:["مثال: سرقة بنك مع خطف مواطن وهروب = تهمة سرقة بنك فقط.","إطلاق النار أو إهانة عسكري تُضاف إلى سرقة البنك، وينطبق ذلك على جميع السرقات."]}
+ ]},
+ {g:"السلوك المهني",rules:[
+  {t:"الأدب والانضباط",d:"يكون رجل الأمن مهذباً ولبقاً مع المواطنين والزملاء، متحكماً في أعصابه وصبوراً حتى أمام الاستفزاز الشديد، ولا يستخدم لغة أو إيماءات بذيئة أو عنيفة."},
+  {t:"مكافحة الفساد",d:"لا يجوز ارتكاب أي عمل من أعمال الفساد، ويجب معارضتها ومكافحتها والإبلاغ عنها."},
+  {t:"كرامة الإنسان",d:"يطبّق رجل الأمن القانون مع احترام كرامة الإنسان وحماية حقوق جميع الأشخاص."},
+  {t:"القوة الإجبارية",d:"لا تُستخدم إلا عند الضرورة القصوى أو عند الاعتداء، وبالقدر المطلوب لأداء الواجب فقط."},
+  {t:"العمل خارج الدوام",d:"يمكن لرجل الأمن تطبيق القانون كلما اقتضت الظروف، بالزي الرسمي أو خارج العمل."},
+  {t:"السرية",d:"تُحفظ سرية الأمور العسكرية ما لم يتطلب الواجب أو العدالة خلاف ذلك."},
+  {t:"صحة المحتجزين",d:"يضمن رجل الأمن حماية صحة المحتجزين ويؤمّن لهم العناية الطبية فوراً عند الحاجة."}
+ ]},
+ {g:"الانضباط والتمرد",rules:[
+  {t:"الخيانة والتمرد",d:"تُعد انهياراً خطيراً في الانضباط، وقد تؤدي إلى إنهاء الخدمة أو الإعدام بالرصاص. وتشمل:",li:["لغة وقحة أو مسيئة أو أفعال تجاه الضابط المشرف أو أي عضو معيّن للقيادة.","الرفض المتعمد للامتثال لأمر قانوني صادر عن الضابط أو القيادات.","السخرية من أوامر القيادة أو الضابط المشرف بحضورهم أو غيابهم.","عدم احترام الرئيس بأي طريقة كانت."]},
+  {t:"القرارات والتعاميم",d:"قد يُبطَل أي أمر عسكري في حالة الطوارئ، ومن يكسر أمراً سابقاً يبلّغ الضابط المسؤول بالسبب فوراً. مسؤولية الأمر على من أصدره، والمساءلة عن التنفيذ على من نفّذه."},
+  {t:"المسؤول في موقع الحادث",d:"رجل الأمن المكلّف من مركز العمليات هو المسؤول حتى انتهاء الحالة، بتوجيه من العمليات أو ضابط أعلى رتبة."}
+ ]},
+ {g:"إساءة استخدام الوظيفة",rules:[
+  {t:"أثناء الإيقاف",d:"لا يرتدي رجل الأمن الموقوف الزي الرسمي ولا يمثّل نفسه كموظف في شرطة ريسبكت."},
+  {t:"المنفعة الشخصية",d:"يُحظر استخدام المنصب أو الهوية أو الشارة لمنفعة شخصية أو مالية أو لتجنب العواقب، ولا تُعار الهوية أو الشارة لأحد ولا تُصوَّر دون موافقة قائد الشرطة."},
+  {t:"العقود والعرائض",d:"لا يوقّع رجل الأمن على عريضة أو عقد باسم الشرطة دون إذن قائد الشرطة أو من ينوب عنه."},
+  {t:"الغياب",d:"لا يجوز الغياب أكثر من يومين دون إذن معتمد من القيادات، ويحق للقيادة فصله دون حقوق مالية."},
+  {t:"الجاهزية",d:"يكون رجل الأمن مجهزاً بالعتاد الكامل وعلى دراية بالمعلومات المطلوبة قبل مغادرة المركز."},
+  {t:"الأدلة والممتلكات",d:"تُعالج الأدلة والممتلكات حسب الإجراءات، ولا يجوز استخدامها أو العبث بها أو إتلافها أو تحريكها."},
+  {t:"المظهر الشخصي",d:"يحافظ رجل الأمن على مظهر أنيق وزي متسق مع سياسة الحكومة."},
+  {t:"المعلومات الشخصية",d:"لا يطلب رجل الأمن معلومات شخصية من المواطنين أو يقدم معلوماته لمنفعة شخصية أثناء أداء مهامه."}
+ ]},
+ {g:"الواجب والقوة",rules:[
+  {t:"إهمال الواجب",d:"إخفاق رجل الأمن في اتخاذ الإجراء المناسب عند وقوع جريمة أو اضطراب، أثناء العمل أو خارجه، يُعد إهمالاً للواجب، ويشرف الضباط على الامتثال."},
+  {t:"المخدرات",d:"لا يستخدم رجل الأمن أي مادة مخدرة أو مهلوسة.",p:"أشد العقوبات وقد تصل للفصل"},
+  {t:"المحتجزون",d:"لا تُساء معاملة المحتجزين، ولا يُفرج عن سجين أو يُترك دون سلطة مناسبة."},
+  {t:"حقوق المقبوض عليه",d:"«تم القبض عليك من قبل شرطة ريسبكت. يجب عليك التزام الصمت إلى حين وضعك في غرفة التحقيق أو الزنزانة. أي شيء تقوله يمكن أن يُستخدم ضدك. لديك الحق في طلب محاميك إذا كان متوفراً.»"},
+  {t:"استخدام القوة",d:"يُستخدم الحد الأدنى من القوة اللازمة للاعتقال والتغلب على المقاومة، دون قوة مفرطة."},
+  {t:"الأسلحة النارية",d:"لا تُستخدم الأسلحة أو تُعرض بطريقة غير مبالية أو تتعارض مع سياسة ريسبكت."},
+  {t:"الكفاءة",d:"يتحمل رجل الأمن المسؤولية الكاملة عن أداء واجباته بأعلى مستويات الكفاءة."}
+ ]}
+],foot:"هذه القوانين قابلة للتعديل من قبل إدارة شرطة ريسبكت في أي وقت."},
+{id:"ems",tag:"EMS",icon:"ems",title:"قوانين الإسعاف",sub:"ضوابط العمل في مستشفى ريسبكت",groups:[
+ {g:"المحظورات",rules:[
+  {d:"يُمنع على المسعفين منعاً باتاً بناء عداوات مع المواطنين."},
+  {d:"يُمنع على المسعفين منعاً باتاً القيام بأي نشاط إجرامي."},
+  {d:"يُمنع على المسعفين منعاً باتاً حيازة أي نوع من الأسلحة (البيضاء أو النارية)."},
+  {d:"يُمنع التقديم للإسعاف بالشخصية الإجرامية، ويُمنع العمل في أي أعمال أخرى."},
+  {d:"يُمنع تسريب أي معلومات تخص أي قطاع حكومي لأي شخص."},
+  {d:"يُمنع التوجه إلى حالات إطلاق النار بدون إبلاغ الشرطة، ويُسمح بالاقتراب بحيث يفصل مربع سكني على الأقل عن موقع إطلاق النار."},
+  {d:"يُمنع استخدام سيارة الإسعاف بشكل شخصي أو لتوصيل المواطنين، ويُمنع نقل المصابين في أي مركبة غير مخصصة للإسعاف."},
+  {d:"يُمنع علاج الحالات الجنائية بدون إذن من العساكر."},
+  {d:"يُمنع إعطاء المواطنين أي عتاد يخص الإسعاف."},
+  {d:"يُمنع قيادة الهليكوبتر بدون شهادة الهليكوبتر."},
+  {d:"يُمنع الذهاب إلى السجن من غير طلب وحدة عسكرية."},
+  {d:"يُمنع التعديل على السيارة بدون إذن المسؤول، وتكون التعديلات خفيفة لا تغيّر مظهرها."},
+  {d:"يُمنع الوشم بجميع أنواعه ولبس الأساور أو الخواتم."},
+  {d:"يُمنع التلميح للترقية بأي شكل.",p:"خصم نقاط وتأخير الترقية"}
+ ]},
+ {g:"الانضباط والعمل",rules:[
+  {d:"يجب احترام موظفي الحكومة وجميع المواطنين، والتقليل من أي شخص يعرضك للفصل الفوري."},
+  {d:"يجب احترام جميع الرتب الأعلى والاستماع لها وتنفيذ تعليماتها."},
+  {d:"يجب إبلاغ مركز العمليات بتحركاتك الميدانية وأخذ الإذن عليها."},
+  {d:"لا يُسمح لمركز العمليات بالخروج من المستشفى إذا كان هناك أكثر من 3 مسعفين."},
+  {d:"يُمنع تسجيل خروجك والتوجه لمكان آخر أو قضاء الوقت بدون إجازة داخلية أو إذن من مسؤول."},
+  {d:"يُسمح بالتواجد في المستشفى إذا كانت لديك حالة، ويمكنك التوجه كوحدة حرة بعد إذن العمليات."},
+  {d:"الالتزام بالزي الرسمي المحدد لكل رتبة، والمحافظة على نظافة وتعقيم المركبات الإسعافية."},
+  {d:"إهمال المصابين وعدم التوجه للبلاغات يعرّضك للمحاسبة الفورية."},
+  {d:"عند سرقة أي عدّة من معداتك يجب إبلاغ المسؤولين وإلا ستُحاسب."},
+  {d:"أقصى مدة للاستراحة أو الغفوة 10 دقائق مع تسجيل الخروج، وإذا زادت يجب الخروج من السيرفر."}
+ ]},
+ {g:"التقارير والرتب",rules:[
+  {d:"التقارير الطبية من رتبة دكتور فما فوق، ويجب عرضها على المسؤولين قبل تسليمها."},
+  {d:"يجب اختيار تخصص خاص بك عند الوصول إلى رتبة دكتور."}
+ ]},
+ {g:"الإجازات والإنذارات",rules:[
+  {d:"أقصى مدة للإجازة الداخلية 4 أيام، مع وضع جميع أغراض الإسعاف في خزنتك الخاصة بالمستشفى.",p:"الفصل عند المخالفة"},
+  {d:"الغياب أكثر من 3 أيام متتالية بدون سبب قد يعرضك للإنذار، أو للفصل إذا تكرر."},
+  {d:"الاعتداء على أحد الزملاء يستوجب إنذاراً مباشراً وقد يصل للفصل الفوري."},
+  {d:"عند وصول الإنذارات إلى 3 يتم فصلك."}
+ ]}
+]},
+{id:"gangs",tag:"GANGS",icon:"gang",title:"قوانين العصابات",sub:"تسجيل العصابات والعداوات والفايتات",rules:[
+ {t:"التحالفات",d:"ممنوع نهائياً أي اتحاد أو تحالف بين العصابات في أي فايت أو عداوة بين طرفين أو ضد الشرطة."},
+ {t:"بدء العداوة",d:"لا تبدأ عداوة عصابات إلا بموافقة بوسات العصابتين أو نوابهم داخل الرول، وإلا تبقى العداوة شخصية. يجب تصوير العداوة كاملة من البداية للنهاية، ولا يُقبل دليل لا يوضح بداية الحالة."},
+ {t:"تدخّل الشرطة",d:"في أي فايت داخل لوس يمكن للشرطة التدخل والقبض على المشاركين في إطلاق النار، ما عدا فايتات المقرات."},
+ {t:"عدد الأعضاء",d:"لا يقل عدد العصابة عن 10 لاعبين ولا يزيد عن 25 لاعباً."},
+ {t:"لون اللبس",d:"لا تُبنى عداوة صريحة على لون اللبس إلا عند إثبات ضرر واقعي على العصابة من استخدامه."},
+ {t:"الأعضاء",d:"عند طرد عضو أو إضافته يجب إبلاغ الإدارة مباشرة."},
+ {t:"تحديث البيانات",d:"أي تغيير في بيانات العصابة (الموقع، اللبس، الشعار...) يُبلَّغ للإدارة خلال يوم واحد."},
+ {t:"العصابات غير المسجلة",d:"لا يحق لأي مجموعة ممارسة نشاط العصابة (عداوات، تحديد موقع...) قبل قبولها وتسجيلها رسمياً."},
+ {t:"الاحترام",d:"يُمنع التجريح أو الإهانة أو الشخصنة تجاه أي عصابة أو فرد داخل الرول أو خارجه. الاحترام مطلوب حتى في العداوات."},
+ {t:"سجل العداوات",d:"تحتفظ كل عصابة بسجل كامل للعداوات في روم مخصص."},
+ {t:"بيانات الديسكورد",d:"ممنوع كتابة بيانات العداوات للأعضاء في الديسكورد (صور أشخاص أو مركبات أو أي معلومات)، فهذا أخذ معلومات من خارج الرول."},
+ {t:"رفع العداوة",d:"عند بدء عداوة بين عصابتين أمامهما يوم واحد لرفع بياناتها للإدارة (السبب والدليل)."},
+ {t:"تمثيل العصابة",d:"كل عضو يمثل العصابة بأكملها. انتقِ أفرادك بعناية ولا تكن سبباً في إقفال عصابتك."},
+ {t:"دخول الحارة",d:"إذا دخل شخص حارتك يمكنك إسقاطه وتلويته بعد تنبيهه بمغادرة الموقع وأنه خطر، وإن لم ينصع يحق للعصابة قتله. القتل بسبب غير منطقي تُحاسَب عليه العصابة."},
+ {t:"التحقق من الأعضاء",d:"تأكد من أعضاء العصابة المعادية قبل أن تبدأ حربك معهم."},
+ {t:"المسؤولية أمام الإدارة",d:"المسؤول أمام الإدارة عن أمور العصابة هو البوس ونائبه ونائب الكوبوس فقط."},
+ {t:"العداوات المغلقة",d:"أي عداوة تُغلق رقابياً لا يمكن إعادة فتحها من قبل أفراد العصابة."},
+ {t:"القرارات الرقابية",d:"يُمنع ذكر أو مناقشة أي معلومات أو قرارات رقابية تخص العصابات في البثوث أو خارج التذاكر."},
+ {t:"الاستبعاد",d:"عند استبعاد عصابة عن نظام العصابات يُلغى تقديمها في الديسكورد وتُفكَّك رسمياً."},
+ {t:"العصابات الفرعية",d:"يُمنع إنشاء عصابة فرعية أو احتياطية أو مجموعة مساعدة للعصابة الرئيسية."},
+ {t:"الانتقال بين العصابات",d:"العضو الخارج من عصابة لا يدخل عصابة أخرى إلا بعد مرور 10 أيام."},
+ {t:"تصوير الفايتات",d:"في الفايتات الرسمية يجب على جميع أعضاء العصابتين تشغيل برنامج تصوير للفايت كاملاً بدون تقطيع."}
+]},
+{id:"justice",tag:"JUSTICE",icon:"justice",title:"قوانين العدل",sub:"المحاكم والمحاماة والسجلات الجنائية",intro:"وزارة العدل في ريسبكت هي الجهة العليا المسؤولة عن النظام القضائي والدستوري، وتعمل على سير العدالة وحماية حقوق كل مواطن ودعم المؤسسات القضائية بنزاهة وشفافية.",rules:[
+ {t:"رتب الوزارة",d:"الرتب الخاصة بوزارة العدل: قاضي، مدعي عام، محامي."},
+ {t:"مكانة الموظفين",d:"يجب على المواطن تقدير مكانة المنتسبين لوزارة العدل بمن فيهم المحامون."},
+ {t:"رخصة المحاماة",d:"وثيقة قانونية تصدرها الجهات المختصة تتيح للمحامي ممارسة المهنة وتمثيل الأفراد أو الجهات أمام المحاكم."},
+ {t:"توكيل محامٍ",d:"حقوق المواطن وحدودها عند التوكيل:",li:["يحق توكيل محامٍ خاص مقيّد للأمور التجارية أو الخاصة، أو لقضية قائمة له أو عليه.","يجب إثبات التوكيل من مكتب المحامين قبل طلب المحامي في زنزانات المركز، ويحق للعسكري رفض الطلب بدون إثبات ورقي موقّع.","وقت الحديث مع المحامي في غرفة التحقيق يحدده مسؤول التحقيق، ولا يحق للعسكري التنصت.","لا يحق للمحامي رفض سجن الموكّل، ويحق له زيارته في السجن المركزي عبر غرفة الزيارات.","لا يحق طلب محامٍ في الجرم المشهود حتى مع وجود توكيل ساري.","من تعرّض للظلم يكمل الإجراءات العسكرية في الزنزانة، وبعد انقضاء محكوميته يرفع دعوى ويوكّل محامياً أمام المحكمة."]},
+ {t:"حصانة القاضي",d:"القاضي والمدعي العام يمثلان الوزارة وقوانينها. يتمتع القاضي بحصانة تمنع محاسبته أثناء ممارسة مهامه القضائية إلا وفق إجراءات خاصة يحددها الدستور."},
+ {t:"خطف القاضي والمدعي العام",d:"يُعد مساءلة قانونية، ويحق لهما طلب جلسة عاجلة ضد المتسبب.",p:"إعدام أو مؤبد أو سجن انفرادي"},
+ {t:"خطف المحامي",d:"يحق خطف المحامي للتفاوض في السرقات، ويحق له طلب جلسة قضائية ومحاكمة الخاطفين بضعف العقوبة العسكرية وأكثر."},
+ {t:"حضور الجلسات",d:"آداب قاعة المحكمة:",li:["ممنوع دخول القاعة إذا كانت الجلسة مغلقة.","ممنوع الدخول بسلاح ناري أو أبيض في الجلسات المفتوحة، ويُحاكم المخالف بقضية جرائم جلسات المحكمة.","يُسمح بالدخول بالزي الرسمي فقط، والمخالف يُخالَف بالذوق العام.","الالتزام بالهدوء، ولا تدخّل في الجلسة إلا بطلب مسبق من محامي الادعاء أو الدفاع."]},
+ {t:"الطلبات العسكرية",d:"يحق لضباط المركز طلب أمر مداهمة وتفتيش ممتلكات من المحكمة إذا كانت التهمة:",li:["خطف عسكري أو سرقة عتاد عسكري.","زعزعة الأمن القومي (الإرهاب).","تجارة الأسلحة النارية الخفيفة والثقيلة.","تجارة الممنوعات.","الإساءة والتشهير في برامج التواصل الاجتماعي."]},
+ {t:"الطلبات التجارية والمدنية",d:"",li:["السجل التجاري إلزامي لكل من يملك تجارة في المدينة.","يجب على التاجر توكيل محامٍ للأمور الإدارية والقانونية والتنفيذية.","تُفرض ضريبة تجارية على الشركات والأفراد العاملين في الأنشطة التجارية.","يحق طلب شهادة عدم ممانعة وحذف السجل الجنائي بعد 30 يوماً من آخر قضية.","لا يحق ذلك إذا كانت في السجل قضية سرقة بنوك أو زعزعة أمن قومي أو تحريض.","يحق طلب شهادة حسن سيرة وسلوك تثبت سجلاً قانونياً نظيفاً."]},
+ {t:"التقديم على رخصة المحاماة",d:"",li:["التقديم إلكترونياً عبر موقع ريسبكت.","الأهلية القانونية وتقمص الشخصية بشكل ممتاز، وحسن السيرة والسمعة.","العمر 18 سنة فما فوق، وجودة صوت ممتازة.","تغيير ملامح الوجه بالكامل عن الوجه الافتراضي.","إحضار الشهادات والسيرة الذاتية للمقابلة بما يتماشى مع الرول (إن وجدت)."]},
+ {t:"شهادة عدم ممانعة للتطوع الإجباري",d:"للراغبين في حذف سجلاتهم الجنائية تمهيداً للانضمام إلى الجهات الحكومية كالشرطة والصحة:",li:["يُقدَّم الطلب بعد 14 يوماً من آخر قضية منفذة ومسجلة.","يُوزَّع المواطن على القطاع الصحي لمدة 40 ساعة تطوعية و40 نقطة وظيفية.","عند النجاح يُمنح شهادة تطوع معتمدة من مستشفى ريسبكت.","تُرفق الشهادة بطلب حذف السجل الجنائي للمحكمة، وتُصدر المحكمة الأمر بعد دراسته.","تُمنح الفرصة مرة واحدة فقط في حياة المستفيد إلا باستثناء خاص من المحكمة."]}
+]},
+{id:"crime",tag:"CRIME",icon:"crime",title:"قوانين الإجرام",sub:"السيناريوهات والخطف والترصد",rules:[
+ {t:"مضايقة العساكر",d:"ممنوع ملاحقة العساكر بغرض المضايقة أو التدخل في عملهم أو الترصد لهم وبناء عداوة معهم."},
+ {t:"التحلل والخروج",d:"يُمنع التحلل أو الخروج من المدينة إلا بعد مرور 15 دقيقة من انتهاء السيناريو."},
+ {t:"العداوة التافهة",d:"يُمنع تكوين عداوة لأسباب تافهة، وفي هذه الحالات تتوجه لمركز الشرطة وترفع شكوى وتكمل الرول بلاي:",li:["مشادة كلامية أو ضرب بالأيدي.","حادث بسيط بالسيارة.","خطف بدون سبب منطقي."]},
+ {t:"معرفة الأسبوع",d:"ممنوع الدخول في أي سيناريو إلا إذا كانت بينكم معرفة رول بلاي لا تقل عن أسبوع."},
+ {t:"خدمات الجوال",d:"يُمنع طلب خدمات الجوال (مثل التاكسي أو الإسعاف) بقصد الخطف أو القتل أو السرقة."},
+ {t:"الاستسلام",d:"إذا رفع شخص عليك سلاحاً (نارياً أو أبيض) يجب الاستسلام الكامل، وحتى مع وجود مخالفة يجب مجاراة السيناريو حتى النهاية."},
+ {t:"مكان الخطف",d:"يُمنع الخطف في مكان عام أو مزدحم، ويجب سحب الهدف إلى مكان خالٍ أولاً."},
+ {t:"الرهائن",d:"يُمنع خطف أو أخذ رهينة من معارفك (أصدقاء أو من نفس العصابة)، ويجب أن تكون الرهينة غريبة عنك."},
+ {t:"المستسلمون",d:"ممنوع منعاً باتاً قتل الأشخاص إذا كانوا ينفذون الأوامر."},
+ {t:"الأماكن المشبوهة",d:"يُسمح بالسرقة بعد تهديد الأشخاص في الأماكن المشبوهة، مثل:",li:["مناطق بيع الكوكايين.","الجزيرة.","أماكن بيع القروش.","وغيرها من الأماكن ذات النشاط الإجرامي."]},
+ {t:"الترصد",d:"مسموح بالترصد في الأماكن المشبوهة ما عدا العيادات الخاصة."},
+ {t:"نقل المُسقَطين",d:"إذا أسقطت عسكرياً أو مجرماً في سيناريو يُمنع نقله للمستشفى بعد انتهاء الفايت إلا إذا كان من عصابتك أو مجموعتك."},
+ {t:"الحمل أثناء الاشتباك",d:"عند تبادل إطلاق النار يُمنع حمل شخص بيدك، يجب إنزاله أولاً ثم المشاركة في القتال."},
+ {t:"معلومات العصابة",d:"ممنوع إعطاء أي معلومات إجرامية أو تفاصيل حساسة عن نشاطات العصابة للغرباء إلا بعد معرفة تتجاوز أسبوعاً كاملاً."},
+ {t:"سرقة العسكري",d:"يحق للمواطن سرقة العسكري في الحالات التالية:",li:["وجود عداوة سابقة بشرط ألا تكون بسبب قيام العسكري بمهامه.","إذا داهمت الشرطة حارة عصابة، يحق للعصابة سرقة العساكر داخل الحارة."]}
+]},
+{id:"robbery",tag:"FEUDS",icon:"rob",title:"العداوة والسرقة",sub:"متى تحق السرقة ومتى تُمنع",rules:[
+ {t:"سرقة المواطن",d:"يحق لك سرقة مواطن فقط إذا كانت هناك عداوة واضحة."},
+ {t:"الأسباب التافهة",d:"يُمنع تكوين عداوة لأسباب تافهة مثل مشادة كلامية أو حادث سيارة بسيط، وعند حدوث مشكلة ترفع بلاغاً للشرطة وتكمل الرول بلاي."},
+ {t:"سرقة العسكري",d:"يحق فقط عند وجود عداوة سابقة بشرط ألا تكون بسبب قيام العسكري بعمله."},
+ {t:"أماكن الخطف الممنوعة",d:"يُمنع الخطف في الأماكن العامة أو أمام العلن أو في مواقع الوظائف (المستشفى، الحجز، النفايات، إلخ)."},
+ {t:"ممنوع منعاً باتاً",d:"",li:["السرقة العشوائية.","أخذ رهائن من المعارف أو الأصدقاء.","قتل الأشخاص أثناء تنفيذهم للأوامر."]},
+ {t:"النسيان وإنهاء العداوة",d:"يُمنع منعاً باتاً العودة إلى الحالة بعد إسقاطك، في جميع الحالات دون استثناء بما فيها الحالات المفتوحة. (هذا القسم جاري تحديثه)"}
+]}
+];
+
+const DISCORD="https://discord.com/channels/1534016354901037230/1553361015633084476";
+const WARNS=[[1,""],[2,"باند 12 ساعة"],[3,""],[4,"باند 24 ساعة"],[5,""],[6,"باند 3 أيام"],[7,""],[8,"باند 7 أيام"],[9,""],[10,"باند 10 أيام"],[11,""],[12,"باند أسبوعين"],[13,""],[14,"باند 3 أسابيع"],[15,"باند 3 أشهر أو نهائي"]];
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const pad=n=>String(n).padStart(2,"0");
+const svg=k=>`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${I[k]}</svg>`;
+
+// normalise sections into groups
+DATA.forEach(s=>{ if(!s.groups) s.groups=[{g:null,rules:s.rules||[]}]; s.total=s.groups.reduce((a,g)=>a+g.rules.length,0)+(s.ladder?WARNS.length:0);});
+
+let current="";
+function hl(text){
+  const t=esc(text); if(!current) return t;
+  const q=esc(current).replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  return t.replace(new RegExp(q,"g"),m=>`<mark>${m}</mark>`);
+}
+const norm=s=>s.replace(/[ًٌٍَُِّْـ]/g,"").replace(/[أإآ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").toLowerCase();
+function ruleText(r){return [r.t||"",r.en||"",r.d||"",(r.li||[]).join(" "),r.p||""].join(" ");}
+
+function render(){
+  const q=norm(current.trim());
+  let shown=0, secShown=0;
+  const html=DATA.map((s,si)=>{
+    const secMatch=q && norm(s.title+" "+s.sub).includes(q);
+    let n=0, parts="";
+    s.groups.forEach(g=>{
+      const items=g.rules.map(r=>{n++;return {r,n};}).filter(({r})=>!q||secMatch||norm(ruleText(r)).includes(q));
+      if(!items.length) return;
+      shown+=items.length;
+      if(g.g) parts+=`<div class="group">${esc(g.g)}</div>`;
+      parts+=`<ol class="rules">`+items.map(({r,n})=>`<li class="rule"><span class="n">${pad(n)}</span><div class="body">${r.t?`<h3>${hl(r.t)}${r.en?` <small>${esc(r.en)}</small>`:""}</h3>`:""}${r.d?`<p>${hl(r.d)}</p>`:""}${r.li?`<ul>${r.li.map(x=>`<li>${hl(x)}</li>`).join("")}</ul>`:""}${r.p?`<span class="pen">العقوبة: ${esc(r.p)}</span>`:""}</div></li>`).join("")+`</ol>`;
+    });
+    let ladder="";
+    if(s.ladder){
+      const lq=!q||secMatch||WARNS.some(w=>norm(w[1]+" وارن باند").includes(q));
+      if(lq){shown+=WARNS.length;
+        ladder=`<div class="ladder">${WARNS.map(([k,v])=>`<div class="step ${k===15?"final":v?"ban":""}"><b>${k}</b><span>${v||"بدون إجراء"}</span></div>`).join("")}</div><div class="ladder-note">الوورنات ليست العقوبة الوحيدة، وبعض المخالفات مستثناة منها وتُعاقب مباشرة.</div>`;}
+    }
+    if(!parts && !ladder) return "";
+    secShown++;
+    return `<section class="panel sec" id="${s.id}" data-id="${s.id}">
+      <div class="sec-head"><span class="ico">${svg(s.icon)}</span><div><h2>${esc(s.title)}<span class="tag">${s.tag}</span></h2><p>${esc(s.sub)}</p></div><span class="num">${pad(si+1)}</span></div>
+      ${s.notice?`<div class="notice">${esc(s.notice)}</div>`:""}
+      ${s.intro&&!q?`<p class="intro">${esc(s.intro)}</p>`:""}
+      ${ladder}${parts}
+      ${s.foot?`<div class="sec-foot">${esc(s.foot)}${s.id==="tickets"?`<div class="foot-cta"><a class="btn" href="${DISCORD}" target="_blank" rel="noopener">افتح تكت في الديسكورد</a></div>`:""}</div>`:""}
+    </section>`;
+  }).join("");
+  document.getElementById("sections").innerHTML=`<div style="display:flex;flex-direction:column;gap:24px">${html}</div>`;
+  document.getElementById("empty").hidden=shown>0;
+  document.getElementById("count").textContent=q?`${shown} نتيجة في ${secShown} ${secShown===1?"قسم":"أقسام"}`:`${TOTAL} قاعدة ضمن ${DATA.length} قسماً`;
+  observe();
+}
+
+const TOTAL=DATA.reduce((a,s)=>a+s.total,0);
+document.getElementById("statSec").textContent=DATA.length;
+document.getElementById("statRules").textContent=TOTAL;
+document.getElementById("nav").innerHTML=DATA.map(s=>`<li><a href="#${s.id}" data-id="${s.id}">${esc(s.title)}<em>${s.total}</em></a></li>`).join("");
+
+let io;
+function setOn(id){document.querySelectorAll("#nav a").forEach(a=>{const on=a.dataset.id===id;a.classList.toggle("on",on);if(on&&window.innerWidth<=1000)a.scrollIntoView({block:"nearest",inline:"center"});});}
+function observe(){
+  if(io) io.disconnect();
+  io=new IntersectionObserver(es=>{const v=es.filter(e=>e.isIntersecting).sort((a,b)=>a.boundingClientRect.top-b.boundingClientRect.top);if(v[0])setOn(v[0].target.dataset.id);},{rootMargin:"-120px 0px -60% 0px"});
+  document.querySelectorAll("section.sec").forEach(s=>io.observe(s));
+}
+
+const input=document.getElementById("q");
+input.addEventListener("input",e=>{current=e.target.value;render();});
+document.addEventListener("keydown",e=>{if(e.key==="/"&&document.activeElement!==input){e.preventDefault();input.focus();}});
+render();
+setOn(DATA[0].id);
+if(location.hash){const el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView();}
+</script>
